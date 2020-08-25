@@ -20,7 +20,7 @@
     </div>
 <asp:UpdatePanel runat="server" id="up" ChildrenAsTriggers="true" UpdateMode="Always">
 <ContentTemplate>
-<asp:Timer  ID="timer" runat="server" Interval="500" ontick="timer_Tick"></asp:Timer>
+<asp:Timer  ID="timer" runat="server" Interval="500" ontick="timer_Tick"></asp:Timer> 
 <div align="right" class="animated fadeInLeft">
 <asp:Label ID="Label3" runat="server" ForeColor="Green" Visible="False" style="font-size:x-large"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </div>
