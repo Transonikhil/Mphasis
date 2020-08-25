@@ -15,8 +15,7 @@ namespace Mphasis_webapp
             string query = "delete from DR_ctp where isdate(vdate)<>1";
             bucket.ExecuteQuery(query);
         }
-
-
+        
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
