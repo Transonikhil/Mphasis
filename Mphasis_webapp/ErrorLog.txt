@@ -1,0 +1,177 @@
+14:19:05-05/02/2020
+.Net SqlClient Data Provider-Login failed for user 'sa'.-http://localhost:44397/login.aspx
+14:19:15-05/02/2020
+.Net SqlClient Data Provider-Login failed for user 'sa'.-http://localhost:44397/login.aspx
+14:20:49-05/02/2020
+.Net SqlClient Data Provider-Login failed for user 'sa'.-http://localhost:44397/Login.aspx
+14:28:42-05/02/2020
+.Net SqlClient Data Provider-Login failed for user 'sa'.-http://localhost:44397/Login.aspx
+14:41:05-05/02/2020
+.Net SqlClient Data Provider-Login failed for user 'sa'.-http://localhost:44397/login.aspx
+14:43:55-05/02/2020
+.Net SqlClient Data Provider-Login failed for user 'sa'.-http://localhost:44397/Login.aspx
+16:04:43-05/02/2020
+.Net SqlClient Data Provider-Login failed for user 'sa'.-http://localhost:44397/login.aspx
+22:48:35-05/02/2020
+.Net SqlClient Data Provider-Cannot open database "Mphasis" requested by the login. The login failed.
+Login failed for user 'sa'.-http://localhost:44397/login.aspx
+12:34:34-05/06/2020
+System.Web-Invalid postback or callback argument.  Event validation is enabled using <pages enableEventValidation="true"/> in configuration or <%@ Page EnableEventValidation="true" %> in a page.  For security purposes, this feature verifies that arguments to postback or callback events originate from the server control that originally rendered them.  If the data is valid and expected, use the ClientScriptManager.RegisterForEventValidation method in order to register the postback or callback data for validation.-http://localhost:44397/MasterReport.aspx
+12:46:55-05/06/2020
+System.Web-Invalid postback or callback argument.  Event validation is enabled using <pages enableEventValidation="true"/> in configuration or <%@ Page EnableEventValidation="true" %> in a page.  For security purposes, this feature verifies that arguments to postback or callback events originate from the server control that originally rendered them.  If the data is valid and expected, use the ClientScriptManager.RegisterForEventValidation method in order to register the postback or callback data for validation.-http://localhost:44397/MasterReport.aspx
+12:48:13-05/06/2020
+System.Web-Invalid postback or callback argument.  Event validation is enabled using <pages enableEventValidation="true"/> in configuration or <%@ Page EnableEventValidation="true" %> in a page.  For security purposes, this feature verifies that arguments to postback or callback events originate from the server control that originally rendered them.  If the data is valid and expected, use the ClientScriptManager.RegisterForEventValidation method in order to register the postback or callback data for validation.-http://localhost:44397/MasterReport.aspx
+14:40:13-05/06/2020
+System.Web-Invalid postback or callback argument.  Event validation is enabled using <pages enableEventValidation="true"/> in configuration or <%@ Page EnableEventValidation="true" %> in a page.  For security purposes, this feature verifies that arguments to postback or callback events originate from the server control that originally rendered them.  If the data is valid and expected, use the ClientScriptManager.RegisterForEventValidation method in order to register the postback or callback data for validation.-http://localhost:44397/PhotoDownload.aspx
+14:41:46-05/06/2020
+System.Web-Invalid postback or callback argument.  Event validation is enabled using <pages enableEventValidation="true"/> in configuration or <%@ Page EnableEventValidation="true" %> in a page.  For security purposes, this feature verifies that arguments to postback or callback events originate from the server control that originally rendered them.  If the data is valid and expected, use the ClientScriptManager.RegisterForEventValidation method in order to register the postback or callback data for validation.-http://localhost:44397/PhotoDownload.aspx
+14:49:02-05/06/2020
+System.Web-Invalid postback or callback argument.  Event validation is enabled using <pages enableEventValidation="true"/> in configuration or <%@ Page EnableEventValidation="true" %> in a page.  For security purposes, this feature verifies that arguments to postback or callback events originate from the server control that originally rendered them.  If the data is valid and expected, use the ClientScriptManager.RegisterForEventValidation method in order to register the postback or callback data for validation.-http://localhost:44397/SchedulerDashboard.aspx
+15:15:54-05/06/2020
+System.Web-Invalid postback or callback argument.  Event validation is enabled using <pages enableEventValidation="true"/> in configuration or <%@ Page EnableEventValidation="true" %> in a page.  For security purposes, this feature verifies that arguments to postback or callback events originate from the server control that originally rendered them.  If the data is valid and expected, use the ClientScriptManager.RegisterForEventValidation method in order to register the postback or callback data for validation.-http://localhost:44397/MasterReport.aspx
+15:17:03-05/06/2020
+System.Web-Invalid postback or callback argument.  Event validation is enabled using <pages enableEventValidation="true"/> in configuration or <%@ Page EnableEventValidation="true" %> in a page.  For security purposes, this feature verifies that arguments to postback or callback events originate from the server control that originally rendered them.  If the data is valid and expected, use the ClientScriptManager.RegisterForEventValidation method in order to register the postback or callback data for validation.-http://localhost:44397/OfficerWiseAudits.aspx
+15:18:58-05/06/2020
+System.Web-Invalid postback or callback argument.  Event validation is enabled using <pages enableEventValidation="true"/> in configuration or <%@ Page EnableEventValidation="true" %> in a page.  For security purposes, this feature verifies that arguments to postback or callback events originate from the server control that originally rendered them.  If the data is valid and expected, use the ClientScriptManager.RegisterForEventValidation method in order to register the postback or callback data for validation.-http://localhost:44397/OfficerWiseAudits.aspx
+16:00:57-05/06/2020
+System.Web-Control 'HeadContent_TextBox1' of type 'TextBox' must be placed inside a form tag with runat=server.-http://localhost:44397/UserRights.aspx
+16:07:41-05/06/2020
+System.Web-Control 'HeadContent_TextBox1' of type 'TextBox' must be placed inside a form tag with runat=server.-http://localhost:44397/UserRights.aspx
+17:33:15-05/07/2020
+System.Web-Control 'HeadContent_TextBox1' of type 'TextBox' must be placed inside a form tag with runat=server.-http://localhost:44397/UserRights.aspx
+17:34:18-05/07/2020
+System.Web-Invalid postback or callback argument.  Event validation is enabled using <pages enableEventValidation="true"/> in configuration or <%@ Page EnableEventValidation="true" %> in a page.  For security purposes, this feature verifies that arguments to postback or callback events originate from the server control that originally rendered them.  If the data is valid and expected, use the ClientScriptManager.RegisterForEventValidation method in order to register the postback or callback data for validation.-http://localhost:44397/Memo.aspx
+17:55:28-05/07/2020
+mscorlib-Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index-http://localhost:44397/OfficerWiseAudits.aspx
+18:45:15-05/07/2020
+System.Web-Control 'HeadContent_TextBox1' of type 'TextBox' must be placed inside a form tag with runat=server.-http://localhost:44397/UserRights.aspx
+18:53:30-05/07/2020
+.Net SqlClient Data Provider-A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The network path was not found.)-http://localhost:44397/UsersMapping.aspx
+19:45:09-05/07/2020
+mscorlib-Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index-http://localhost:44397/OfficerWiseAudits.aspx
+10:33:06-05/08/2020
+mscorlib-Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index-http://localhost:44397/OfficerWiseAudits.aspx
+10:34:03-05/08/2020
+System.Web-Control 'HeadContent_TextBox1' of type 'TextBox' must be placed inside a form tag with runat=server.-http://localhost:44397/UserRights.aspx
+10:57:59-05/08/2020
+System.Web-Control 'HeadContent_TextBox1' of type 'TextBox' must be placed inside a form tag with runat=server.-http://localhost:44397/UserRights.aspx
+11:19:47-05/08/2020
+System.Web-Invalid postback or callback argument.  Event validation is enabled using <pages enableEventValidation="true"/> in configuration or <%@ Page EnableEventValidation="true" %> in a page.  For security purposes, this feature verifies that arguments to postback or callback events originate from the server control that originally rendered them.  If the data is valid and expected, use the ClientScriptManager.RegisterForEventValidation method in order to register the postback or callback data for validation.-http://localhost:44397/PhotoDownload.aspx
+11:24:04-05/08/2020
+System.Web-Control 'HeadContent_TextBox1' of type 'TextBox' must be placed inside a form tag with runat=server.-http://localhost:44397/UserRights.aspx
+11:30:33-05/08/2020
+System.Web-Control 'HeadContent_TextBox1' of type 'TextBox' must be placed inside a form tag with runat=server.-http://localhost:44397/UserRights.aspx
+12:44:20-05/08/2020
+mscorlib-Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index-http://localhost:44397/OfficerWiseAudits.aspx
+15:26:42-05/08/2020
+mscorlib-Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index-http://localhost:44397/OfficerWiseAudits.aspx
+16:18:29-05/08/2020
+mscorlib-Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index-http://localhost:44397/OfficerWiseAudits.aspx
+20:30:19-05/08/2020
+System.Web-Invalid postback or callback argument.  Event validation is enabled using <pages enableEventValidation="true"/> in configuration or <%@ Page EnableEventValidation="true" %> in a page.  For security purposes, this feature verifies that arguments to postback or callback events originate from the server control that originally rendered them.  If the data is valid and expected, use the ClientScriptManager.RegisterForEventValidation method in order to register the postback or callback data for validation.-http://localhost:44397/UsersMapping.aspx
+09:55:04-05/09/2020
+Mphasis_webapp-Object reference not set to an instance of an object.-http://localhost:44397/UsersMapping.aspx
+18:21:49-05/09/2020
+Mphasis_webapp-Object reference not set to an instance of an object.-http://localhost:44397/UsersMapping.aspx
+19:52:20-05/09/2020
+System.Web-RegisterForEventValidation can only be called during Render();-http://localhost:44397/TodaysAudits.aspx
+20:18:02-05/09/2020
+System.Web-RegisterForEventValidation can only be called during Render();-http://localhost:44397/TodaysAudits.aspx
+14:30:21-05/11/2020
+Mphasis_webapp-Object reference not set to an instance of an object.-http://localhost:44397/Photos.aspx
+22:04:09-05/11/2020
+System.Web-A field or property with the name 'IS RAMP AVAILABLE ?' was not found on the selected data source.-http://localhost:44397/MasterReport.aspx
+22:22:53-05/11/2020
+System.Web-A field or property with the name 'IS RAMP AVAILABLE ?' was not found on the selected data source.-http://localhost:44397/MasterReport.aspx
+22:29:54-05/11/2020
+System.Web-A field or property with the name 'IS RAMP AVAILABLE ?' was not found on the selected data source.-http://localhost:44397/MasterReport.aspx
+22:34:20-05/11/2020
+System.Web-A field or property with the name 'IS RAMP AVAILABLE ?' was not found on the selected data source.-http://localhost:44397/MasterReport.aspx
+15:41:24-05/12/2020
+System.Web-A field or property with the name 'IS RAMP AVAILABLE ?' was not found on the selected data source.-http://localhost:44397/MasterReport.aspx
+16:08:59-05/12/2020
+System.Web-A field or property with the name 'IS RAMP AVAILABLE ?' was not found on the selected data source.-http://localhost:44397/MasterReport.aspx
+16:21:20-05/12/2020
+System.Web-A field or property with the name 'IS RAMP AVAILABLE ?' was not found on the selected data source.-http://localhost:44397/MasterReport.aspx
+16:29:51-05/12/2020
+System.Web-A field or property with the name 'IS RAMP AVAILABLE ?' was not found on the selected data source.-http://localhost:44397/MasterReport.aspx
+16:47:34-05/12/2020
+System.Web-A field or property with the name 'IS RAMP AVAILABLE ?' was not found on the selected data source.-http://localhost:44397/MasterReport.aspx
+17:40:35-05/12/2020
+System.Web-A field or property with the name 'IS RAMP AVAILABLE ?' was not found on the selected data source.-http://localhost:44397/MasterReport.aspx
+17:41:15-05/12/2020
+System.Web-A field or property with the name 'IS RAMP AVAILABLE ?' was not found on the selected data source.-http://localhost:44397/MasterReport.aspx
+18:07:47-05/12/2020
+System.Web-A field or property with the name 'IS RAMP AVAILABLE ?' was not found on the selected data source.-http://localhost:44397/MasterReport.aspx
+19:22:43-05/12/2020
+System.Web-A field or property with the name 'IS RAMP AVAILABLE ?' was not found on the selected data source.-http://localhost:44397/MasterReport.aspx
+19:27:04-05/12/2020
+System.Web-A field or property with the name 'IS LAN ROUTING PROPER ?' was not found on the selected data source.-http://localhost:44397/MasterReport.aspx
+10:26:12-05/13/2020
+Mphasis_webapp-Object reference not set to an instance of an object.-http://localhost:44397/Photos.aspx
+11:21:24-05/23/2020
+System.Data-Column 'Report' does not belong to table .-http://localhost:44397/CurrentAudit1.aspx
+14:26:37-05/23/2020
+Mphasis_webapp-Object reference not set to an instance of an object.-http://localhost:44397/GPSOffReport.aspx
+16:26:34-05/26/2020
+System.Web-Invalid postback or callback argument.  Event validation is enabled using <pages enableEventValidation="true"/> in configuration or <%@ Page EnableEventValidation="true" %> in a page.  For security purposes, this feature verifies that arguments to postback or callback events originate from the server control that originally rendered them.  If the data is valid and expected, use the ClientScriptManager.RegisterForEventValidation method in order to register the postback or callback data for validation.-http://localhost:44397/CH/MasterReport.aspx
+16:28:34-05/26/2020
+System.Web-Invalid postback or callback argument.  Event validation is enabled using <pages enableEventValidation="true"/> in configuration or <%@ Page EnableEventValidation="true" %> in a page.  For security purposes, this feature verifies that arguments to postback or callback events originate from the server control that originally rendered them.  If the data is valid and expected, use the ClientScriptManager.RegisterForEventValidation method in order to register the postback or callback data for validation.-http://localhost:44397/CH/MasterReport.aspx
+16:28:56-05/26/2020
+System.Web-Invalid postback or callback argument.  Event validation is enabled using <pages enableEventValidation="true"/> in configuration or <%@ Page EnableEventValidation="true" %> in a page.  For security purposes, this feature verifies that arguments to postback or callback events originate from the server control that originally rendered them.  If the data is valid and expected, use the ClientScriptManager.RegisterForEventValidation method in order to register the postback or callback data for validation.-http://localhost:44397/CH/MasterReport.aspx
+16:31:10-05/26/2020
+System.Web-Invalid postback or callback argument.  Event validation is enabled using <pages enableEventValidation="true"/> in configuration or <%@ Page EnableEventValidation="true" %> in a page.  For security purposes, this feature verifies that arguments to postback or callback events originate from the server control that originally rendered them.  If the data is valid and expected, use the ClientScriptManager.RegisterForEventValidation method in order to register the postback or callback data for validation.-http://localhost:44397/CH/OfficerWiseAudits.aspx
+17:47:02-05/26/2020
+mscorlib-String was not recognized as a valid DateTime.-http://localhost:44397/CH/ScheduledReport.aspx
+17:53:40-05/26/2020
+mscorlib-String was not recognized as a valid DateTime.-http://localhost:44397/Memo.aspx
+17:59:22-05/26/2020
+System.Web-Cannot find ContentPlaceHolder 'MainContent1' in the master page '/Site.Master', verify content control's ContentPlaceHolderID attribute in the content page.-http://localhost:44397/CH/UserMasterReport.aspx
+17:59:50-05/26/2020
+System.Web-Cannot find ContentPlaceHolder 'MainContent1' in the master page '/Site.Master', verify content control's ContentPlaceHolderID attribute in the content page.-http://localhost:44397/CH/UserMasterReport.aspx
+19:49:39-05/26/2020
+mscorlib-String was not recognized as a valid DateTime.-http://localhost:44397/CH/DistanceReport.aspx
+09:23:16-05/27/2020
+mscorlib-String was not recognized as a valid DateTime.-http://localhost:44397/bank/ScheduledReport.aspx
+09:23:19-05/27/2020
+mscorlib-String was not recognized as a valid DateTime.-http://localhost:44397/bank/ScheduledReport.aspx
+09:23:38-05/27/2020
+mscorlib-String was not recognized as a valid DateTime.-http://localhost:44397/bank/IncidentMasterReport.aspx
+09:24:12-05/27/2020
+mscorlib-String was not recognized as a valid DateTime.-http://localhost:44397/bank/ChronicleIssues.aspx
+10:05:00-05/27/2020
+mscorlib-String was not recognized as a valid DateTime.-http://localhost:44397/RM/AuditForAPeriod.aspx
+10:06:35-05/27/2020
+mscorlib-String was not recognized as a valid DateTime.-http://localhost:44397/RM/TodaysAudits.aspx
+10:09:02-05/27/2020
+mscorlib-String was not recognized as a valid DateTime.-http://localhost:44397/RM/ScheduledReport.aspx
+10:09:31-05/27/2020
+mscorlib-String was not recognized as a valid DateTime.-http://localhost:44397/RM/ChronicleIssues.aspx
+10:10:43-05/27/2020
+.Net SqlClient Data Provider-A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)-http://localhost:44397/UsersMapping.aspx
+10:15:44-05/27/2020
+mscorlib-String was not recognized as a valid DateTime.-http://localhost:44397/Memo.aspx
+11:05:29-05/27/2020
+.Net SqlClient Data Provider-A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)-http://localhost:44397/RCM/CurrentAudit1.aspx
+11:13:23-05/27/2020
+mscorlib-String was not recognized as a valid DateTime.-http://localhost:44397/RCM/ScheduledReport.aspx
+11:13:54-05/27/2020
+mscorlib-String was not recognized as a valid DateTime.-http://localhost:44397/RCM/ChronicleIssues.aspx
+11:37:49-05/27/2020
+mscorlib-String was not recognized as a valid DateTime.-http://localhost:44397/bank/currentaudit1.aspx
+11:38:12-05/27/2020
+mscorlib-String was not recognized as a valid DateTime.-http://localhost:44397/bank/currentaudit1.aspx
+14:03:34-05/28/2020
+Mphasis_webapp-Object reference not set to an instance of an object.-http://localhost:44397/RM/DashBoardBankstateRM.aspx
+14:50:39-05/28/2020
+Mphasis_webapp-Object reference not set to an instance of an object.-http://localhost:44397/CurrentAudit1.aspx
+14:21:22-08/21/2020
+.Net SqlClient Data Provider-Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.-http://localhost:44397/Default.aspx
+14:22:44-08/21/2020
+.Net SqlClient Data Provider-Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.-http://localhost:44397/Default.aspx

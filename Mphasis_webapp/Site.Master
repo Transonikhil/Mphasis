@@ -1,0 +1,768 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Mphasis_webapp.Site" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <style type="text/css">
+        .accordion
+        {
+            width: 400px;
+        }
+        .overlay
+        {
+            position: absolute;
+            background-color: white;
+            top: 0px;
+            left: 10em;
+            width: 50%;
+            height: 50px;
+            opacity: 0.8;
+            -moz-opacity: 0.8;
+            filter: alpha(opacity=80);
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+            z-index: 10000;
+            line-height: 100%;
+        }
+        .accordionHeader
+        {
+            border: 1px solid #2F4F4F;
+            color: white;
+            background-color: #2E4d7B;
+            font-family: Arial, Sans-Serif;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 5px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+        .accordionHeaderSelected
+        {
+            border: 1px solid #2F4F4F;
+            color: white;
+            background-color: #5078B3;
+            font-family: Arial, Sans-Serif;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 5px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+        .accordionContent
+        {
+            background-color: #D3DEEF;
+            border: 1px dashed #2F4F4F;
+            border-top: none;
+            padding: 5px;
+            padding-top: 10px;
+        }
+    </style>
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="Image/favicon.png" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <%--<div align="center">
+    <div class="overlay" style="font-size:xx-large;color:Red">
+        *Console Is Under Maintenance*
+        </div></div>!--%>
+    <div class="page" style="background-image: url('Image/squairy_light.png'); background-repeat: repeat;">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+        <div class="header" style="background-image: url('Image/b3.png'); background-repeat: repeat">
+            <div class="title">
+                <%--<h1 style="color: #000000; font-size: 36px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; ">
+                    Maudit Console</h1>--%>
+                <div style="font-weight: 700; margin: 0px; padding: 0px 0px 0px 20px; color: #f9f9f9;
+                    border: none; line-height: 2em; font-size: 2em; color: #000000; font-size: 36px;
+                    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                    mAudit Console
+                </div>
+            </div>
+            <div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [<%=Session["sess_userid"] %>] [<%=Session["sess_role"] %>]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold">
+                            <asp:LoginName ID="HeadLoginName" runat="server" />
+                        </span>! [<%=Session["sess_userid"] %>] [<%=Session["sess_role"] %>]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+                <hr />
+            </div>
+            <br />
+            <br />
+            <table style="width: 100%">
+                <tr>
+                    <td style="width: 60%">
+                        <h1>
+                            <asp:Button ID="Button6" Font-Names="Cambria, Cochin, Georgia, Times" runat="server"
+                                Text="Field Tracker" BorderWidth="0px" BackColor="#006699" Height="40px" Width="150px"
+                                Font-Size="15px" ForeColor="White" OnClick="Button6_Click" CausesValidation="False"
+                                EnableViewState="False" UseSubmitBehavior="False" />
+                            <asp:Button ID="Button2" Font-Names="Cambria, Cochin, Georgia, Times" runat="server"
+                                Text="DashBoard" BorderWidth="0px" BackColor="#006699" Height="40px" Width="150px"
+                                Font-Size="15px" ForeColor="White" OnClick="Button2_Click" CausesValidation="False"
+                                EnableViewState="False" UseSubmitBehavior="False" />
+                            <asp:Button ID="Stateorbankdashboard" Font-Names="Cambria, Cochin, Georgia, Times"
+                                runat="server" Text="State/Bank Wise DashBoard" BorderWidth="0px" BackColor="#006699"
+                                Height="40px" Width="190px" Font-Size="15px" ForeColor="White" OnClick="Button1_Click"
+                                CausesValidation="False" EnableViewState="False" UseSubmitBehavior="False" />
+                            <asp:Button ID="Button3" Font-Names="Cambria, Cochin, Georgia, Times" runat="server"
+                                Text="Logout" BorderWidth="0px" BackColor="#006699" Height="40px" Width="150px"
+                                Font-Size="15px" ForeColor="White" OnClick="Button3_Click" CausesValidation="False"
+                                EnableViewState="False" UseSubmitBehavior="False" />
+                        </h1>
+                    </td>
+                    <td style="width: 40%">
+                        <div align="right">
+                            <img alt="not found" src="Image/logo.ico">&nbsp;&nbsp;
+                            <%-- <img alt="not found" src="Image/modern.jpg">--%>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br />
+        <br />
+        <table style="width: 100%">
+            <tr>
+                <td style="width: 1%">
+                </td>
+                <td valign="top" style="width: 200px">
+                    <asp:Accordion ID="Accordion1" CssClass="accordion" HeaderCssClass="accordionHeader"
+                        HeaderSelectedCssClass="accordionHeaderSelected" ContentCssClass="accordionContent"
+                        runat="server" Width="220px" FadeTransitions="True" RequireOpenedPane="false"
+                        SelectedIndex="-1">
+                        <panes>
+                                <asp:AccordionPane ID="AccordionPane1" Font-Names="Cambria, Cochin, Georgia, Times"
+                                    runat="server">
+                                    <Header>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times">
+                                            <h1 style="color: white;">REPORTS</h1>
+                                        </div>
+                                    </Header>
+                                    <Content>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times; font-size: medium">
+                                            <asp:HyperLink ID="HyperLink7" runat="server" Text="Latest Audits"
+                                                NavigateUrl="CurrentAudit1.aspx" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="h1" runat="server" Text="Master Report"
+                                                NavigateUrl="MasterReport.aspx" ToolTip="Master Report For A Period" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink1" runat="server" Text="Officer Wise Report"
+                                                NavigateUrl="OfficerWiseAudits.aspx" ToolTip="Officer Wise Audit For A Period" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink2" runat="server" Text="C/B Wise Report" Font-Underline="False"
+                                                NavigateUrl="AuditForAPeriod.aspx" ToolTip="Customer Wise Bank Wise Audit Report For A Period"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink6" runat="server" Text="Distance Report" Font-Underline="False"
+                                                NavigateUrl="DistanceReport.aspx" ToolTip="Distance Report"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink56" runat="server" Text="Distance Master Report" Font-Underline="False"
+                                                NavigateUrl="DistanceMasterReport.aspx" ToolTip="Distance Master Report"></asp:HyperLink><br />
+                                            <%--<asp:HyperLink ID="HyperLink4" runat="server" Text="Exception Report"
+                                            NavigateUrl="QuestionWiseAudits.aspx" ToolTip="ATM Wise Exception Report For A Period" Font-Underline="False"></asp:HyperLink><br />
+                                        <asp:HyperLink ID="HyperLink6" runat="server" Text="C/B/E wise Report" 
+                                            NavigateUrl="ExceptionAudits.aspx" ToolTip="Customer Wise Bank Wise Question Wise Exception Report For A Period" Font-Underline="False"></asp:HyperLink><br />--%>
+                                            <asp:HyperLink ID="HyperLink15" runat="server" Text="ATM Audit"
+                                                NavigateUrl="TodaysAudits.aspx" ToolTip="ATM Wise Audit Report For A Period" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink5" runat="server" Text="View Un-Audited"
+                                                NavigateUrl="UnAudited.aspx"></asp:HyperLink><br />
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink57" runat="server" Text="Users Not Sending Reports"
+                                                NavigateUrl="UserNotsendreport.aspx"></asp:HyperLink><br />
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink64" runat="server" Text="Area Officer Summary"
+                                                NavigateUrl="AreaOfficerWiseSummary.aspx"></asp:HyperLink><br />
+                                                <asp:HyperLink Style="text-decoration: none" ID="HyperLink68" runat="server" Text="Download Audit Images"
+                                                NavigateUrl="PhotoDownload.aspx"></asp:HyperLink><br />
+                                                <asp:HyperLink Style="text-decoration: none" ID="HyperLink73" runat="server" Text="User Master Report"
+                                                NavigateUrl="UserMasterReport.aspx"></asp:HyperLink><br />
+                                                <asp:HyperLink Style="text-decoration: none" ID="HyperLink92" runat="server" Text="GPS and Internet Off Report"
+                                                NavigateUrl="GPSoffReport.aspx"></asp:HyperLink><br /> 
+
+                                        </div>
+                                    </Content>
+                                </asp:AccordionPane>
+
+                                <asp:AccordionPane ID="AccordionPane4" Font-Names="Cambria, Cochin, Georgia, Times"
+                                    runat="server">
+                                    <Header>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times">
+                                            <h1 style="color: white;">SCHEDULER</h1>
+                                        </div>
+                                    </Header>
+                                    <Content>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times; font-size: medium">
+                                            <asp:HyperLink ID="HyperLink24" runat="server" Text="Upload Scheduler"
+                                                NavigateUrl="NewSiteUploadV6.aspx" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink25" runat="server" Text="Scheduler Report"
+                                                NavigateUrl="ScheduledReport.aspx" ToolTip="Master Report For A Period" Font-Underline="False"></asp:HyperLink><br />
+                                                <asp:HyperLink ID="HyperLink69" runat="server" Text="Scheduler Dashboard"
+                                                NavigateUrl="SchedulerDashboard.aspx" ToolTip="Scheduler Dashboard" Font-Underline="False"></asp:HyperLink>
+                                        </div>
+                                    </Content>
+                                </asp:AccordionPane>
+
+                                <asp:AccordionPane ID="AccordionPane2" Font-Names="Cambria, Cochin, Georgia, Times"
+                                    runat="server">
+                                    <Header>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times">
+                                            <h1 style="color: white;">INCIDENT MANAGEMENT</h1>
+                                        </div>
+                                    </Header>
+                                    <Content>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times; font-size: medium">
+                                            <asp:HyperLink ID="HyperLink14" runat="server" Text="Incident Master Report"
+                                                NavigateUrl="IncidentMasterReport.aspx" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink16" runat="server" Text="Chronic Issue Report"
+                                                NavigateUrl="ChronicleIssues.aspx" ToolTip="Chronicle Issues Report For A Period" Font-Underline="False"></asp:HyperLink>
+                                        </div>
+                                    </Content>
+                                </asp:AccordionPane>
+
+                                <asp:AccordionPane ID="AccordionPane3" runat="server" Font-Names="Cambria, Cochin, Georgia, Times">
+                                    <Header>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times">
+                                            <h1 style="color: white;">CONFIGURATION</h1>
+                                        </div>
+                                    </Header>
+                                    <Content>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times; font-size: medium">
+                                            <%--<asp:HyperLink Style="text-decoration: none" ID="HyperLink8" runat="server" Text="ATM Sites"
+                                            NavigateUrl="ATMs.aspx"></asp:HyperLink><br />
+                                        <asp:HyperLink Style="text-decoration: none" ID="HyperLink9" runat="server" Text="Users"
+                                            NavigateUrl="Users.aspx"></asp:HyperLink><br />
+                                            --%>
+                                            
+                                            
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink91" runat="server" Text="User Mapping"
+                                                NavigateUrl="UsersMapping.aspx"></asp:HyperLink><br /> 
+
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink10" runat="server" Text="User Rights"
+                                                NavigateUrl="UserRights.aspx"></asp:HyperLink><br />
+                                            <%--<asp:HyperLink Style="text-decoration: none" ID="HyperLink11" runat="server" Text="GeoFencing"
+                                            NavigateUrl="map.aspx"></asp:HyperLink><br />
+                                            --%>
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink3" runat="server" Text="Cross Mapping"
+                                                NavigateUrl="mapping.aspx"></asp:HyperLink><br />
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink4" runat="server" Text="Multiple Mapping"
+                                                NavigateUrl="MapAtmsToUsers.aspx"></asp:HyperLink><br />
+
+                                                <asp:HyperLink Style="text-decoration: none" ID="HyperLink70" runat="server" Text="Active Users"
+                                                NavigateUrl="user.aspx"></asp:HyperLink><br />
+                                            
+                                                <asp:HyperLink Style="text-decoration: none" ID="HyperLink78" runat="server" Text="Reset IMEI"
+                                                NavigateUrl="Usersmac.aspx"></asp:HyperLink><br />
+                                                <asp:HyperLink Style="text-decoration: none" ID="hypMemo" runat="server" Text="Memo"
+                                                NavigateUrl="Memo.aspx"></asp:HyperLink>
+                                            <%-- <hr />
+                                        <asp:HyperLink Style="text-decoration: none" ID="HyperLink261" runat="server" Text="Memo"
+                                            NavigateUrl="Memo.aspx"></asp:HyperLink><br />
+                                        <asp:HyperLink Style="text-decoration: none" ID="HyperLink12" runat="server" Text="Add ATM"
+                                            NavigateUrl="AddATMs.aspx"></asp:HyperLink><br />
+                                        <asp:HyperLink Style="text-decoration: none" ID="HyperLink13" runat="server" Text="Add User"
+                                            NavigateUrl="AddUsers.aspx"></asp:HyperLink><br />--%>
+                                        </div>
+                                    </Content>
+                                </asp:AccordionPane>
+
+
+                                <asp:AccordionPane ID="pane_rcm" Font-Names="Cambria, Cochin, Georgia, Times"
+                                    runat="server">
+                                    <Header>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times">
+                                            <h1 style="color: white;">MY MENU</h1>
+                                        </div>
+                                    </Header>
+                                    <Content>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times; font-size: medium">
+                                            REPORTS<br />
+                                            <hr />
+                                            <asp:HyperLink ID="HyperLink8" runat="server" Text="Latest Audits"
+                                                NavigateUrl="RCM/CurrentAudit1.aspx" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink9" runat="server" Text="Master Report"
+                                                NavigateUrl="RCM/MasterReport.aspx" ToolTip="Master Report For A Period" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink11" runat="server" Text="Officer Wise Report"
+                                                NavigateUrl="RCM/OfficerWiseAudits.aspx" ToolTip="Officer Wise Audit For A Period" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink12" runat="server" Text="C/B Wise Report" Font-Underline="False"
+                                                NavigateUrl="RCM/AuditForAPeriod.aspx" ToolTip="Customer Wise Bank Wise Audit Report For A Period"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink13" runat="server" Text="Distance Report" Font-Underline="False"
+                                                NavigateUrl="RCM/DistanceReport.aspx" ToolTip="Distance Report"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink59" runat="server" Text="Distance Master Report" Font-Underline="False"
+                                                NavigateUrl="RCM/DistanceMasterReportRCM.aspx" ToolTip="Distance Report"></asp:HyperLink><br />
+                                            <%--<asp:HyperLink ID="HyperLink4" runat="server" Text="Exception Report"
+                                            NavigateUrl="QuestionWiseAudits.aspx" ToolTip="ATM Wise Exception Report For A Period" Font-Underline="False"></asp:HyperLink><br />
+                                        <asp:HyperLink ID="HyperLink6" runat="server" Text="C/B/E wise Report" 
+                                            NavigateUrl="ExceptionAudits.aspx" ToolTip="Customer Wise Bank Wise Question Wise Exception Report For A Period" Font-Underline="False"></asp:HyperLink><br />--%>
+                                            <asp:HyperLink ID="HyperLink17" runat="server" Text="ATM Audit"
+                                                NavigateUrl="RCM/TodaysAudits.aspx" ToolTip="ATM Wise Audit Report For A Period" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink18" runat="server" Text="View Un-Audited"
+                                                NavigateUrl="RCM/UnAudited.aspx"></asp:HyperLink><br />
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink60" runat="server" Text="Users Not Sending Reports"
+                                                NavigateUrl="RCM/UserNotsendreportRCM.aspx"></asp:HyperLink><br />
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink65" runat="server" Text="Area Officer Summary"
+                                                NavigateUrl="RCM/AreaOfficerWiseSummary.aspx"></asp:HyperLink><br />
+                                                <asp:HyperLink Style="text-decoration: none" ID="HyperLink74" runat="server" Text="User Master Report"
+                                                NavigateUrl="RCM/UserMasterReport.aspx"></asp:HyperLink><br />
+
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink97" runat="server" Text="GPS and Internet Off Report"
+                                                NavigateUrl="GPSoffReport.aspx"></asp:HyperLink><br />
+                                                
+                                        </div>
+                                        <hr />
+                                        <hr />
+                                        SCHEDULER<br />
+                                        <hr />
+                                        <%--</Content>
+                                <Header>
+                                    <div style="font-family: Cambria, Cochin, Georgia, Times">
+                                        <h1 style="color: white;">
+                                            SCHEDULER</h1>
+                                    </div>
+                                </Header>
+                                <Content>--%>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times; font-size: medium">
+                                            <asp:HyperLink ID="HyperLink28" runat="server" Text="Upload Scheduler"
+                                                NavigateUrl="RCM/NewSiteUploadV6.aspx" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink29" runat="server" Text="Scheduler Report"
+                                                NavigateUrl="RCM/ScheduledReport.aspx" ToolTip="Master Report For A Period" Font-Underline="False"></asp:HyperLink>
+                                        </div>
+                                        <%-- </Content>
+                                <Header>--%>
+                                        <hr />
+                                        <hr />
+                                        INCIDENT MANGEMENT<br />
+                                        <hr />
+                                        <%--<div style="font-family: Cambria, Cochin, Georgia, Times">
+                                        <h1 style="color: white;">
+                                            INCIDENT MANGEMENT</h1>
+                                    </div>
+                                </Header>
+                                <Content>--%>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times; font-size: medium">
+                                            <asp:HyperLink ID="HyperLink30" runat="server" Text="Incident Master Report"
+                                                NavigateUrl="RCM/IncidentMasterReport.aspx" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink31" runat="server" Text="Chronic Issue Report"
+                                                NavigateUrl="RCM/ChronicleIssues.aspx" ToolTip="Chronicle Issues Report For A Period" Font-Underline="False"></asp:HyperLink>
+                                        </div>
+                                        <%-- </Content>
+
+                                <Header>
+                                    <div style="font-family: Cambria, Cochin, Georgia, Times">
+                                        <h1 style="color: white;">
+                                            CONFIGURATION</h1>
+                                    </div>
+                                </Header>
+                                <Content>--%>
+                                        <hr />
+                                        <hr />
+                                        CONFIGURATION<br />
+                                        <hr />
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times; font-size: medium">
+                                            <%--<asp:HyperLink Style="text-decoration: none" ID="HyperLink8" runat="server" Text="ATM Sites"
+                                            NavigateUrl="ATMs.aspx"></asp:HyperLink><br />
+                                        <asp:HyperLink Style="text-decoration: none" ID="HyperLink9" runat="server" Text="Users"
+                                            NavigateUrl="Users.aspx"></asp:HyperLink><br />
+                                            --%>
+ 
+
+                                            
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink32" runat="server" Text="User Rights"
+                                                NavigateUrl="RCM/UserRights.aspx"></asp:HyperLink><br />
+                                            <%--<asp:HyperLink Style="text-decoration: none" ID="HyperLink11" runat="server" Text="GeoFencing"
+                                            NavigateUrl="map.aspx"></asp:HyperLink><br />
+                                            --%>
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink33" runat="server" Text="Cross Mapping"
+                                                NavigateUrl="RCM/mapping.aspx"></asp:HyperLink><br />
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink34" runat="server" Text="Multiple Mapping"
+                                                NavigateUrl="RCM/MapAtmsToUsers.aspx"></asp:HyperLink><br />
+
+                                                <asp:HyperLink Style="text-decoration: none" ID="HyperLink71" runat="server" Text="Active Users"
+                                                NavigateUrl="RCM/user.aspx"></asp:HyperLink><br />
+                                                <asp:HyperLink Style="text-decoration: none" ID="HyperLink79" runat="server" Text="Memo"
+                                                NavigateUrl="Memo.aspx"></asp:HyperLink>
+                                            <%-- <hr />
+                                        <asp:HyperLink Style="text-decoration: none" ID="HyperLink261" runat="server" Text="Memo"
+                                            NavigateUrl="Memo.aspx"></asp:HyperLink><br />
+                                        <asp:HyperLink Style="text-decoration: none" ID="HyperLink12" runat="server" Text="Add ATM"
+                                            NavigateUrl="AddATMs.aspx"></asp:HyperLink><br />
+                                        <asp:HyperLink Style="text-decoration: none" ID="HyperLink13" runat="server" Text="Add User"
+                                            NavigateUrl="AddUsers.aspx"></asp:HyperLink><br />--%>
+                                        </div>
+                                    </Content>
+                                </asp:AccordionPane>
+
+                                <asp:AccordionPane ID="pane_rm" Font-Names="Cambria, Cochin, Georgia, Times"
+                                    runat="server">
+                                    <Header>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times">
+                                            <h1 style="color: white;">MY MENU</h1>
+                                        </div>
+                                    </Header>
+                                    <Content>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times; font-size: medium">
+                                            REPORTS<br />
+                                            <hr />
+                                            <asp:HyperLink ID="HyperLink19" runat="server" Text="Latest Audits"
+                                                NavigateUrl="RM/CurrentAudit1.aspx" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink20" runat="server" Text="Master Report"
+                                                NavigateUrl="RM/MasterReport.aspx" ToolTip="Master Report For A Period" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink21" runat="server" Text="Officer Wise Report"
+                                                NavigateUrl="RM/OfficerWiseAudits.aspx" ToolTip="Officer Wise Audit For A Period" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink22" runat="server" Text="C/B Wise Report" Font-Underline="False"
+                                                NavigateUrl="RM/AuditForAPeriod.aspx" ToolTip="Customer Wise Bank Wise Audit Report For A Period"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink23" runat="server" Text="Distance Report" Font-Underline="False"
+                                                NavigateUrl="RM/DistanceReport.aspx" ToolTip="Distance Report"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink58" runat="server" Text="Distance Master Report" Font-Underline="False"
+                                                NavigateUrl="RM/DistanceMasterReportRM.aspx" ToolTip="Distance Report"></asp:HyperLink><br />
+                                            <%--<asp:HyperLink ID="HyperLink4" runat="server" Text="Exception Report"
+                                            NavigateUrl="QuestionWiseAudits.aspx" ToolTip="ATM Wise Exception Report For A Period" Font-Underline="False"></asp:HyperLink><br />
+                                        <asp:HyperLink ID="HyperLink6" runat="server" Text="C/B/E wise Report" 
+                                            NavigateUrl="ExceptionAudits.aspx" ToolTip="Customer Wise Bank Wise Question Wise Exception Report For A Period" Font-Underline="False"></asp:HyperLink><br />--%>
+                                            <asp:HyperLink ID="HyperLink26" runat="server" Text="ATM Audit"
+                                                NavigateUrl="RM/TodaysAudits.aspx" ToolTip="ATM Wise Audit Report For A Period" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink27" runat="server" Text="View Un-Audited"
+                                                NavigateUrl="RM/UnAudited.aspx"></asp:HyperLink><br />
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink61" runat="server" Text="Users Not Sending Reports"
+                                                NavigateUrl="RM/UserNotsendreportRM.aspx"></asp:HyperLink><br />
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink66" runat="server" Text="Area Officer Summary"
+                                                NavigateUrl="RM/AreaOfficerWiseSummary.aspx"></asp:HyperLink><br />
+                                                <asp:HyperLink Style="text-decoration: none" ID="HyperLink75" runat="server" Text="User Master Report"
+                                                NavigateUrl="RM/UserMasterReport.aspx"></asp:HyperLink><br />
+
+                                        <asp:HyperLink Style="text-decoration: none" ID="HyperLink98" runat="server" Text="GPS and Internet Off Report"
+                                        NavigateUrl="GPSoffReport.aspx"></asp:HyperLink><br /> 
+
+                                        </div>
+                                        <hr />
+                                        <hr />
+                                        SCHEDULER<br />
+                                        <hr />
+                                        <%--</Content>
+                                <Header>
+                                    <div style="font-family: Cambria, Cochin, Georgia, Times">
+                                        <h1 style="color: white;">
+                                            SCHEDULER</h1>
+                                    </div>
+                                </Header>
+                                <Content>--%>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times; font-size: medium">
+                                            <asp:HyperLink ID="HyperLink35" runat="server" Text="Upload Scheduler"
+                                                NavigateUrl="RM/NewSiteUploadV6.aspx" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink36" runat="server" Text="Scheduler Report"
+                                                NavigateUrl="RM/ScheduledReport.aspx" ToolTip="Master Report For A Period" Font-Underline="False"></asp:HyperLink>
+                                        </div>
+                                        <%-- </Content>
+                                <Header>--%>
+                                        <hr />
+                                        <hr />
+                                        INCIDENT MANGEMENT<br />
+                                        <hr />
+                                        <%--<div style="font-family: Cambria, Cochin, Georgia, Times">
+                                        <h1 style="color: white;">
+                                            INCIDENT MANGEMENT</h1>
+                                    </div>
+                                </Header>
+                                <Content>--%>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times; font-size: medium">
+                                            <asp:HyperLink ID="HyperLink37" runat="server" Text="Incident Master Report"
+                                                NavigateUrl="RM/IncidentMasterReport.aspx" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink38" runat="server" Text="Chronic Issue Report"
+                                                NavigateUrl="RM/ChronicleIssues.aspx" ToolTip="Chronicle Issues Report For A Period" Font-Underline="False"></asp:HyperLink>
+                                        </div>
+                                        <%-- </Content>
+
+                                <Header>
+                                    <div style="font-family: Cambria, Cochin, Georgia, Times">
+                                        <h1 style="color: white;">
+                                            CONFIGURATION</h1>
+                                    </div>
+                                </Header>
+                                <Content>--%>
+                                        <hr />
+                                        <hr />
+                                        CONFIGURATION<br />
+                                        <hr />
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times; font-size: medium">
+                                            <%--<asp:HyperLink Style="text-decoration: none" ID="HyperLink8" runat="server" Text="ATM Sites"
+                                            NavigateUrl="ATMs.aspx"></asp:HyperLink><br />
+                                        <asp:HyperLink Style="text-decoration: none" ID="HyperLink9" runat="server" Text="Users"
+                                            NavigateUrl="Users.aspx"></asp:HyperLink><br />
+                                            --%>
+
+
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink87" runat="server" Text="User Mapping"
+                                                NavigateUrl="UsersMapping.aspx"></asp:HyperLink><br /> 
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink39" runat="server" Text="User Rights"
+                                                NavigateUrl="RM/UserRights.aspx"></asp:HyperLink><br />
+                                            <%--<asp:HyperLink Style="text-decoration: none" ID="HyperLink11" runat="server" Text="GeoFencing"
+                                            NavigateUrl="map.aspx"></asp:HyperLink><br />
+                                            --%>
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink40" runat="server" Text="Cross Mapping"
+                                                NavigateUrl="RM/mapping.aspx"></asp:HyperLink><br />
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink41" runat="server" Text="Multiple Mapping"
+                                                NavigateUrl="RM/MapAtmsToUsers.aspx"></asp:HyperLink><br />
+                                                <asp:HyperLink Style="text-decoration: none" ID="HyperLink77" runat="server" Text="Active Users"
+                                                NavigateUrl="RM/user.aspx"></asp:HyperLink><br />
+                                                <asp:HyperLink Style="text-decoration: none" ID="HyperLink80" runat="server" Text="Memo"
+                                                NavigateUrl="Memo.aspx"></asp:HyperLink>
+                                            <%-- <hr />
+                                        <asp:HyperLink Style="text-decoration: none" ID="HyperLink261" runat="server" Text="Memo"
+                                            NavigateUrl="Memo.aspx"></asp:HyperLink><br />
+                                        <asp:HyperLink Style="text-decoration: none" ID="HyperLink12" runat="server" Text="Add ATM"
+                                            NavigateUrl="AddATMs.aspx"></asp:HyperLink><br />
+                                        <asp:HyperLink Style="text-decoration: none" ID="HyperLink13" runat="server" Text="Add User"
+                                            NavigateUrl="AddUsers.aspx"></asp:HyperLink><br />--%>
+                                        </div>
+                                    </Content>
+                                </asp:AccordionPane>
+                                <asp:AccordionPane ID="pane_ch" Font-Names="Cambria, Cochin, Georgia, Times"
+                                    runat="server">
+                                    <Header>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times">
+                                            <h1 style="color: white;">MY MENU</h1>
+                                        </div>
+                                    </Header>
+                                    <Content>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times; font-size: medium">
+                                            REPORTS<br />
+                                            <hr />
+                                            <asp:HyperLink ID="HyperLink42" runat="server" Text="Latest Audits"
+                                                NavigateUrl="CH/CurrentAudit1.aspx" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink43" runat="server" Text="Master Report"
+                                                NavigateUrl="CH/MasterReport.aspx" ToolTip="Master Report For A Period" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink44" runat="server" Text="Officer Wise Report"
+                                                NavigateUrl="CH/OfficerWiseAudits.aspx" ToolTip="Officer Wise Audit For A Period" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink45" runat="server" Text="C/B Wise Report" Font-Underline="False"
+                                                NavigateUrl="CH/AuditForAPeriod.aspx" ToolTip="Customer Wise Bank Wise Audit Report For A Period"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink46" runat="server" Text="Distance Report" Font-Underline="False"
+                                                NavigateUrl="CH/DistanceReport.aspx" ToolTip="Distance Report"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink62" runat="server" Text="Distance Master Report" Font-Underline="False"
+                                                NavigateUrl="CH/DistanceMasterReportCH.aspx" ToolTip="Distance Report"></asp:HyperLink><br />
+                                            <%-- <asp:HyperLink ID="HyperLink58" runat="server" Text="Distance Master Report" Font-Underline="False"
+                                            NavigateUrl="CH/DistanceReport.aspx" ToolTip="Distance Report"></asp:HyperLink><br />--%>
+                                            <%--<asp:HyperLink ID="HyperLink4" runat="server" Text="Exception Report"
+                                            NavigateUrl="QuestionWiseAudits.aspx" ToolTip="ATM Wise Exception Report For A Period" Font-Underline="False"></asp:HyperLink><br />
+                                        <asp:HyperLink ID="HyperLink6" runat="server" Text="C/B/E wise Report" 
+                                            NavigateUrl="ExceptionAudits.aspx" ToolTip="Customer Wise Bank Wise Question Wise Exception Report For A Period" Font-Underline="False"></asp:HyperLink><br />--%>
+                                            <asp:HyperLink ID="HyperLink47" runat="server" Text="ATM Audit"
+                                                NavigateUrl="CH/TodaysAudits.aspx" ToolTip="ATM Wise Audit Report For A Period" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink48" runat="server" Text="View Un-Audited"
+                                                NavigateUrl="CH/UnAudited.aspx"></asp:HyperLink><br />
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink63" runat="server" Text="Users Not Sending Reports"
+                                                NavigateUrl="CH/UserNotsendreportCH.aspx"></asp:HyperLink><br />
+                                             <asp:HyperLink Style="text-decoration: none" ID="HyperLink67" runat="server" Text="Area Officer Summary"
+                                                NavigateUrl="CH/AreaOfficerWiseSummary.aspx"></asp:HyperLink><br />
+                                                <asp:HyperLink Style="text-decoration: none" ID="HyperLink76" runat="server" Text="User Master Report"
+                                                NavigateUrl="CH/UserMasterReport.aspx"></asp:HyperLink><br />
+                                        
+                                        <asp:HyperLink Style="text-decoration: none" ID="HyperLink99" runat="server" Text="GPS and Internet Off Report"
+                                                NavigateUrl="GPSoffReport.aspx"></asp:HyperLink><br /> 
+                                            
+                                        </div>
+                                        <hr />
+                                        <hr />
+                                        SCHEDULER<br />
+                                        <hr />
+                                        <%--</Content>
+                                <Header>
+                                    <div style="font-family: Cambria, Cochin, Georgia, Times">
+                                        <h1 style="color: white;">
+                                            SCHEDULER</h1>
+                                    </div>
+                                </Header>
+                                <Content>--%>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times; font-size: medium">
+                                            <asp:HyperLink ID="HyperLink49" runat="server" Text="Upload Scheduler"
+                                                NavigateUrl="CH/NewSiteUploadV6.aspx" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink50" runat="server" Text="Scheduler Report"
+                                                NavigateUrl="CH/ScheduledReport.aspx" ToolTip="Master Report For A Period" Font-Underline="False"></asp:HyperLink>
+                                        </div>
+                                        <%-- </Content>
+                                <Header>--%>
+                                        <hr />
+                                        <hr />
+                                        INCIDENT MANGEMENT<br />
+                                        <hr />
+                                        <%--<div style="font-family: Cambria, Cochin, Georgia, Times">
+                                        <h1 style="color: white;">
+                                            INCIDENT MANGEMENT</h1>
+                                    </div>
+                                </Header>
+                                <Content>--%>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times; font-size: medium">
+                                            <asp:HyperLink ID="HyperLink51" runat="server" Text="Incident Master Report"
+                                                NavigateUrl="CH/IncidentMasterReport.aspx" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink52" runat="server" Text="Chronic Issue Report"
+                                                NavigateUrl="CH/ChronicleIssues.aspx" ToolTip="Chronicle Issues Report For A Period" Font-Underline="False"></asp:HyperLink>
+                                        </div>
+                                        <%-- </Content>
+
+                                <Header>
+                                    <div style="font-family: Cambria, Cochin, Georgia, Times">
+                                        <h1 style="color: white;">
+                                            CONFIGURATION</h1>
+                                    </div>
+                                </Header>
+                                <Content>--%>
+                                        <hr />
+                                        <hr />
+                                        CONFIGURATION<br />
+                                        <hr />
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times; font-size: medium">
+                                            <%--<asp:HyperLink Style="text-decoration: none" ID="HyperLink8" runat="server" Text="ATM Sites"
+                                            NavigateUrl="ATMs.aspx"></asp:HyperLink><br />
+                                        <asp:HyperLink Style="text-decoration: none" ID="HyperLink9" runat="server" Text="Users"
+                                            NavigateUrl="Users.aspx"></asp:HyperLink><br />
+                                            --%>
+                                            
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink90" runat="server" Text="User Mapping"
+                                                NavigateUrl="UsersMapping.aspx"></asp:HyperLink><br /> 
+
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink53" runat="server" Text="User Rights"
+                                                NavigateUrl="CH/UserRights.aspx"></asp:HyperLink><br />
+                                            <%--<asp:HyperLink Style="text-decoration: none" ID="HyperLink11" runat="server" Text="GeoFencing"
+                                            NavigateUrl="map.aspx"></asp:HyperLink><br />
+                                            --%>
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink54" runat="server" Text="Cross Mapping"
+                                                NavigateUrl="CH/mapping.aspx"></asp:HyperLink><br />
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink55" runat="server" Text="Multiple Mapping"
+                                                NavigateUrl="CH/MapAtmsToUsers.aspx"></asp:HyperLink><br />
+                                                <asp:HyperLink Style="text-decoration: none" ID="HyperLink72" runat="server" Text="Active Users"
+                                                NavigateUrl="CH/user.aspx"></asp:HyperLink><br />
+                                                <asp:HyperLink Style="text-decoration: none" ID="HyperLink81" runat="server" Text="Memo"
+                                                NavigateUrl="Memo.aspx"></asp:HyperLink>
+                                            <%-- <hr />
+                                        <asp:HyperLink Style="text-decoration: none" ID="HyperLink261" runat="server" Text="Memo"
+                                            NavigateUrl="Memo.aspx"></asp:HyperLink><br />
+                                        <asp:HyperLink Style="text-decoration: none" ID="HyperLink12" runat="server" Text="Add ATM"
+                                            NavigateUrl="AddATMs.aspx"></asp:HyperLink><br />
+                                        <asp:HyperLink Style="text-decoration: none" ID="HyperLink13" runat="server" Text="Add User"
+                                            NavigateUrl="AddUsers.aspx"></asp:HyperLink><br />--%>
+                                        </div>
+                                    </Content>
+                                </asp:AccordionPane>
+
+
+                                   <asp:AccordionPane ID="pane_bank" Font-Names="Cambria, Cochin, Georgia, Times"
+                                    runat="server">
+                                    <Header>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times">
+                                            <h1 style="color: white;">MY MENU</h1>
+                                        </div>
+                                    </Header>
+                                    <Content>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times; font-size: medium">
+                                            AUDIT REPORTS<br />
+                                            <hr />
+                                            <asp:HyperLink ID="HyperLink82" runat="server" Text="Latest Audits"
+                                                NavigateUrl="bank/CurrentAudit1.aspx" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink83" runat="server" Text="Master Report"
+                                                NavigateUrl="bank/MasterReport.aspx" ToolTip="Master Report For A Period" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink84" runat="server" Text="Officer Wise Report"
+                                                NavigateUrl="bank/OfficerWiseAudits.aspx" ToolTip="Officer Wise Audit For A Period" Font-Underline="False"></asp:HyperLink><br />
+                                           <%-- <asp:HyperLink ID="HyperLink85" runat="server" Text="C/B Wise Report" Font-Underline="False"
+                                                NavigateUrl="CH/AuditForAPeriod.aspx" ToolTip="Customer Wise Bank Wise Audit Report For A Period"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink86" runat="server" Text="Distance Report" Font-Underline="False"
+                                                NavigateUrl="CH/DistanceReport.aspx" ToolTip="Distance Report"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink87" runat="server" Text="Distance Master Report" Font-Underline="False"
+                                                NavigateUrl="CH/DistanceMasterReportCH.aspx" ToolTip="Distance Report"></asp:HyperLink><br />
+                                          --%>  <%-- <asp:HyperLink ID="HyperLink58" runat="server" Text="Distance Master Report" Font-Underline="False"
+                                            NavigateUrl="CH/DistanceReport.aspx" ToolTip="Distance Report"></asp:HyperLink><br />--%>
+                                            <%--<asp:HyperLink ID="HyperLink4" runat="server" Text="Exception Report"
+                                            NavigateUrl="QuestionWiseAudits.aspx" ToolTip="ATM Wise Exception Report For A Period" Font-Underline="False"></asp:HyperLink><br />
+                                        <asp:HyperLink ID="HyperLink6" runat="server" Text="C/B/E wise Report" 
+                                            NavigateUrl="ExceptionAudits.aspx" ToolTip="Customer Wise Bank Wise Question Wise Exception Report For A Period" Font-Underline="False"></asp:HyperLink><br />--%>
+                                            <asp:HyperLink ID="HyperLink88" runat="server" Text="ATM Audit"
+                                                NavigateUrl="bank/TodaysAudits.aspx" ToolTip="ATM Wise Audit Report For A Period" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink Style="text-decoration: none" ID="HyperLink89" runat="server" Text="View Un-Audited"
+                                                NavigateUrl="bank/UnAudited.aspx"></asp:HyperLink><br />
+                                                <asp:HyperLink Style="text-decoration: none" ID="HyperLink85" runat="server" Text="Download Audit Images"
+                                                NavigateUrl="bank/photodownload.aspx"></asp:HyperLink><br />
+                                                <asp:HyperLink Style="text-decoration: none" ID="HyperLink86" runat="server" Text="User Master Report"
+                                                NavigateUrl="bank/usermasterreport.aspx"></asp:HyperLink><br />
+                                           <%-- <asp:HyperLink Style="text-decoration: none" ID="HyperLink90" runat="server" Text="Users Not Sending Reports"
+                                                NavigateUrl="CH/UserNotsendreportCH.aspx"></asp:HyperLink><br />
+                                             <asp:HyperLink Style="text-decoration: none" ID="HyperLink91" runat="server" Text="Area Officer Summary"
+                                                NavigateUrl="CH/AreaOfficerWiseSummary.aspx"></asp:HyperLink><br />
+                                                <asp:HyperLink Style="text-decoration: none" ID="HyperLink92" runat="server" Text="User Master Report"
+                                                NavigateUrl="CH/UserMasterReport.aspx"></asp:HyperLink><br />--%>
+                                        </div>
+                                        <hr />
+                                        <hr />
+                                        SCHEDULER<br />
+                                        <hr />
+                                        <%--</Content>
+                                <Header>
+                                    <div style="font-family: Cambria, Cochin, Georgia, Times">
+                                        <h1 style="color: white;">
+                                            SCHEDULER</h1>
+                                    </div>
+                                </Header>
+                                <Content>--%>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times; font-size: medium">
+                                            <asp:HyperLink ID="HyperLink93" runat="server" Text="Upload Scheduler"
+                                                NavigateUrl="bank/NewSiteUploadV6.aspx" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink94" runat="server" Text="Scheduler Report"
+                                                NavigateUrl="bank/ScheduledReport.aspx" ToolTip="Master Report For A Period" Font-Underline="False"></asp:HyperLink>
+                                        </div>
+                                        <%-- </Content>
+                                <Header>--%>
+                                        <hr />
+                                        <hr />
+                                        INCIDENT MANGEMENT<br />
+                                        <hr />
+                                        <%--<div style="font-family: Cambria, Cochin, Georgia, Times">
+                                        <h1 style="color: white;">
+                                            INCIDENT MANGEMENT</h1>
+                                    </div>
+                                </Header>
+                                <Content>--%>
+                                        <div style="font-family: Cambria, Cochin, Georgia, Times; font-size: medium">
+                                            <asp:HyperLink ID="HyperLink95" runat="server" Text="Incident Master Report"
+                                                NavigateUrl="bank/IncidentMasterReport.aspx" Font-Underline="False"></asp:HyperLink><br />
+                                            <asp:HyperLink ID="HyperLink96" runat="server" Text="Chronic Issue Report"
+                                                NavigateUrl="bank/ChronicleIssues.aspx" ToolTip="Chronicle Issues Report For A Period" Font-Underline="False"></asp:HyperLink>
+                                        </div>
+                                        <%-- </Content>
+
+                                <Header>
+                                    <div style="font-family: Cambria, Cochin, Georgia, Times">
+                                        <h1 style="color: white;">
+                                            CONFIGURATION</h1>
+                                    </div>
+                                </Header>
+                                <Content>--%>
+                                        <hr />
+                                                                            </Content>
+                                </asp:AccordionPane>
+
+                            </panes>
+                    </asp:Accordion>
+                </td>
+                <td>
+                </td>
+                <td style="width: 86%; vertical-align: top; padding: 0.5em">
+                    <div>
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="clear">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="footer">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
+

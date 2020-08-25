@@ -1,0 +1,70 @@
+﻿body
+{
+  
+    font-size: .80em;
+    font-family: "Helvetica Neue" , "Lucida Grande" , "Segoe UI" , Arial, Helvetica, Verdana, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    color: #696969;
+}
+.header
+{
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    background: white; /*#4b6c9e;*/
+    width: 100%;
+}
+
+.loginDisplay
+{
+    font-size: 1.1em;
+    display: block;
+    text-align: right;
+    padding: 10px;
+    color: black;
+    outline-color: black;
+}
+.page
+{
+    width: auto;
+    height: auto;
+    background-color: #fff;
+    margin: 20px auto 0px auto;
+    border: 1px solid #496077;
+}
+.loginDisplay a:link
+{
+    color: black;
+}
+
+.loginDisplay a:visited
+{
+    color: white;
+}
+
+.loginDisplay a:hover
+{
+    color: white;
+}
+.first
+{
+    width: 30%;
+}
+p
+{
+    font-family: Tahoma;
+    font-size: 1em;
+    color:#2e4d7b;
+}
+
+td,tr
+{
+    margin: 20px;
+    padding: 20px;
+    
+}
+.center
+{
+  margin:auto;
+}
