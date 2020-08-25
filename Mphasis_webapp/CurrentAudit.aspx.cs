@@ -22,6 +22,7 @@ namespace Mphasis_webapp
             {
                 HyperLink report = new HyperLink();
                 report.Text = "Excel";
+
                 report.NavigateUrl = "Report.aspx?auditid=" + e.Row.Cells[2].Text.Trim() + "&dnld_excel=Y";
 
                 e.Row.Cells[0].Controls.Add(report);
